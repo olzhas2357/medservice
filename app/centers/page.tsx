@@ -1,3 +1,5 @@
+"use client";
+
 import Link from "next/link"
 import { MapPin, Phone, Stethoscope, SmileIcon as Tooth } from "lucide-react"
 
