@@ -1,5 +1,9 @@
+"use client";
 import Link from "next/link"
+import { useState } from "react";
 import { ArrowLeft, Stethoscope } from "lucide-react"
+import { sendPasswordResetEmail } from "firebase/auth";
+import { auth } from "@/lib/firebase";
 
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card"
@@ -7,6 +11,20 @@ import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
 
 export default function ForgotPasswordPage() {
+  const [email, setEmail] = useState("");
+  const [message, setMessage] = useState("");
+  const [error, setError] = useState("");
+
+  const handleReset = async () =>{
+    setMessage("");
+    setError("");
+    try {
+      await sendPasswordResetEmail(auth, email);
+      setMessage("📧 Ссылка для сброса пароля отправлена. Проверьте вашу почту.");
+    } catch (err: any) {
+      setError("❌ Ошибка: " + err.message);
+    }
+  }
   return (
     <div className="flex min-h-screen flex-col">
       <header className="bg-white border-b">
@@ -26,11 +44,19 @@ export default function ForgotPasswordPage() {
           <CardContent className="space-y-4">
             <div className="space-y-2">
               <Label htmlFor="email">Email</Label>
-              <Input id="email" type="email" placeholder="m@example.com" />
+              <Input
+                  id="email"
+                  type="email"
+                  placeholder="m@example.com"
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
+              />
             </div>
-            <Button type="submit" className="w-full bg-emerald-600 hover:bg-emerald-700">
+            <Button type="submit" className="w-full bg-emerald-600 hover:bg-emerald-700" onClick={handleReset}>
               Send reset link
             </Button>
+            {message && <p className="text-green-600 text-sm text-center">{message}</p>}
+            {error && <p className="text-red-500 text-sm text-center">{error}</p>}
           </CardContent>
           <CardFooter className="flex flex-col space-y-4">
             <div className="text-sm text-center">

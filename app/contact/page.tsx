@@ -126,7 +126,7 @@ export default function ContactPage() {
                       <div>
                         <h3 className="font-medium">Email</h3>
                         <p className="text-sm text-gray-500 mt-1">Send us an email</p>
-                        <p className="text-sm font-medium mt-2">support@medservice.com</p>
+                        <p className="text-sm font-medium mt-2">olzhas.koshkarbay@gmail.com</p>
                         <p className="text-sm text-gray-500 mt-1">We'll respond within 24 hours</p>
                       </div>
                     </div>
@@ -140,11 +140,8 @@ export default function ContactPage() {
                         <h3 className="font-medium">Main Office</h3>
                         <p className="text-sm text-gray-500 mt-1">Visit our headquarters</p>
                         <p className="text-sm font-medium mt-2">
-                          123 Healthcare Avenue
                           <br />
-                          Medical District
                           <br />
-                          New York, NY 10001
                         </p>
                       </div>
                     </div>
@@ -184,15 +181,6 @@ export default function ContactPage() {
                 </p>
               </div>
             </div>
-            <div className="aspect-video w-full rounded-lg overflow-hidden">
-              <img
-                src="/placeholder.svg?height=600&width=1200"
-                alt="Map of MedService locations"
-                className="object-cover w-full h-full"
-                width={1200}
-                height={600}
-              />
-            </div>
             <div className="grid gap-6 mt-8 md:grid-cols-3">
               <Card>
                 <CardHeader>
@@ -201,7 +189,7 @@ export default function ContactPage() {
                 </CardHeader>
                 <CardContent>
                   <p className="text-sm">
-                    <span className="font-medium">Phone:</span> +1 (555) 123-4567
+                    <span className="font-medium">Phone:</span> +7 (747) 651 97 35
                   </p>
                   <p className="text-sm mt-1">
                     <span className="font-medium">Hours:</span> 8:00 AM - 8:00 PM
